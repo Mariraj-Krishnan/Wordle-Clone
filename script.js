@@ -1,3 +1,4 @@
+alert('This will work only on desktop browsers');
 const cells = document.querySelectorAll(".cell");
 const input = document.querySelector("input");
 const rows = document.querySelectorAll(".row");
