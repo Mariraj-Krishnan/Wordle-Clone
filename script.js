@@ -1,4 +1,4 @@
-alert('This will work only on desktop browsers');
+alert("This will work only on desktop browsers");
 const cells = document.querySelectorAll(".cell");
 const input = document.querySelector("input");
 const rows = document.querySelectorAll(".row");
@@ -59,23 +59,18 @@ function afterReady() {
       }
       const crct = [];
       rows[Math.floor(i / 5) - 1].classList.add("completed");
-      for (const ltr of givenWordCopy) {
-        for (const entry of arr) {
-          if (ltr === entry) {
-            if (givenWordCopy.indexOf(ltr) === arr.indexOf(entry)) {
-              rows[enterCount]
-                .querySelectorAll(".cell")
-                [arr.indexOf(entry)].classList.add("green");
-              crct.push(entry);
-              givenWordCopy[givenWordCopy.indexOf(ltr)] = "$";
-              arr[arr.indexOf(entry)] = "$";
-              break;
+      var currentRowCells = rows[enterCount].querySelectorAll(".cell");
+      for (let index1 = 0; index1 < givenWordCopy.length; index1++) {
+        for (let index2 = 0; index2 < arr.length; index2++) {
+          if (givenWordCopy[index1] === arr[index2]) {
+            if (index1 === index2) {
+              currentRowCells[index2].classList.add("green");
+              crct.push(arr[index2]);
+              givenWordCopy[index1] = "$";
+              arr[index2] = "$";
             } else {
-              rows[enterCount]
-                .querySelectorAll(".cell")
-                [arr.indexOf(entry)].classList.add("yellow");
+              currentRowCells[index2].classList.add("yellow");
             }
-            break;
           }
         }
       }
